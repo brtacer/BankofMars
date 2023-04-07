@@ -1,0 +1,10 @@
+rootProject.name = 'BankofMars'
+include 'ConfigServer'
+include 'ApiGatewayService'
+include 'TransactionService'
+include 'CardService'
+include 'CustomerService'
+include 'AccountService'
+include 'AuthService'
+include 'MailService'
+

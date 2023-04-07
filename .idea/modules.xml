@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AccountService/BankofMars.AccountService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AccountService/BankofMars.AccountService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/BankofMars.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/BankofMars.AuthService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CardService/BankofMars.CardService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CardService/BankofMars.CardService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigServer/BankofMars.ConfigServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigServer/BankofMars.ConfigServer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerService/BankofMars.CustomerService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerService/BankofMars.CustomerService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MailService/BankofMars.MailService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MailService/BankofMars.MailService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TransactionService/BankofMars.TransactionService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TransactionService/BankofMars.TransactionService.main.iml" />
+    </modules>
+  </component>
+</project>
