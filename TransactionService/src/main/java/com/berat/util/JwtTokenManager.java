@@ -22,7 +22,7 @@ public class JwtTokenManager {
 
     public Optional<String> createToken(Long id){
         String token=null;
-        Long exDate =1000L*60*60;
+        Long exDate =1000L*60*5;
 
         try {
             token = JWT.create().withAudience()
@@ -66,5 +66,17 @@ public class JwtTokenManager {
             throw new TransactionManagerException(ErrorType.NOT_DECODED);
         }
     }
-
+    public Optional<String> getByRoleFromToken(String token){
+        try {
+            Algorithm algorithm = Algorithm.HMAC512(secretKey);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .withIssuer(issuer).build();
+            DecodedJWT decodedJWT = verifier.verify(token);
+            if (decodedJWT==null)
+                throw new TransactionManagerException(ErrorType.INVALID_TOKEN);
+            return Optional.of(decodedJWT.getClaim("role").asString());
+        }catch (Exception exception){
+            throw new TransactionManagerException(ErrorType.NOT_DECODED);
+        }
+    }
 }

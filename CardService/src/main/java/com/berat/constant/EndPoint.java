@@ -17,6 +17,7 @@ public class EndPoint {
     public static final String LIMIT = "/limit";
 
     public static final String BYACCOUNTID = "/{accountId}";
+    public static final String BYAUTHID = "/{authId}";
     public static final String BYCARDID = "/{cardId}";
 
 }

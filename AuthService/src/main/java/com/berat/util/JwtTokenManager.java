@@ -6,6 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.berat.exception.ErrorType;
 import com.berat.exception.AuthManagerException;
+import com.berat.model.Role;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -20,13 +21,14 @@ public class JwtTokenManager {
     @Value("${security.issuer}")
     private String issuer;
 
-    public Optional<String> createToken(Long id){
+    public Optional<String> createToken(Long id, Role role){
         String token=null;
         Long exDate =1000L*60*60;
 
         try {
             token = JWT.create().withAudience()
                     .withClaim("id",id)
+                    .withClaim("role",role.name())
                     .withClaim("lastjoin",System.currentTimeMillis())
                     .withIssuer(issuer)
                     .withIssuedAt(new Date())

@@ -14,6 +14,7 @@ public class EndPoint {
     public static final String PAYMENT = "/payment";
 
     public static final String BYACCOUNTID = "/{accountId}";
+    public static final String BYAUTHID = "/{authId}";
     public static final String BYTRANSACTIONID = "/{transactionId}";
 
 

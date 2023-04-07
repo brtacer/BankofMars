@@ -8,6 +8,7 @@ import com.berat.dto.response.AccountResponse;
 import com.berat.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -37,11 +38,13 @@ public class AccountController {
         return ResponseEntity.ok(MessageResponse.builder().message("Money withdrawal made successfully!").build());
     }
     @PatchMapping(DEACTIVATE+BYACCOUNTID)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<MessageResponse> deActivateById(@PathVariable Long accountId){
         accountService.deActivateById(accountId);
         return ResponseEntity.ok(MessageResponse.builder().message("Account deactivated successfully!").build());
     }
     @DeleteMapping(DELETE+BYACCOUNTID)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<MessageResponse> deleteByAccountId(@PathVariable Long accountId){
         accountService.deleteByAccountId(accountId);
         return ResponseEntity.ok(MessageResponse.builder().message("Account deleted successfully!").build());

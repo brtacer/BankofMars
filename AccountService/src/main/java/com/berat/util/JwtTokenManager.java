@@ -66,5 +66,18 @@ public class JwtTokenManager {
             throw new AccountManagerException(ErrorType.NOT_DECODED);
         }
     }
+    public Optional<String> getByRoleFromToken(String token){
+        try {
+            Algorithm algorithm = Algorithm.HMAC512(secretKey);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .withIssuer(issuer).build();
+            DecodedJWT decodedJWT = verifier.verify(token);
+            if (decodedJWT==null)
+                throw new AccountManagerException(ErrorType.INVALID_TOKEN);
+            return Optional.of(decodedJWT.getClaim("role").asString());
+        }catch (Exception exception){
+            throw new AccountManagerException(ErrorType.NOT_DECODED);
+        }
+    }
 
 }

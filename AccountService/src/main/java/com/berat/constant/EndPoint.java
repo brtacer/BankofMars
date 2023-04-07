@@ -16,6 +16,7 @@ public class EndPoint {
     public static final String WITHDRAWAL = "/withdrawal";
 
     public static final String BYACCOUNTID = "/{accountId}";
+    public static final String BYAUTHID = "/{authId}";
     public static final String BYCUSTOMERID = "/{customerId}";
 
 }

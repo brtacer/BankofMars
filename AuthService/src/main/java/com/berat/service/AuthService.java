@@ -39,7 +39,7 @@ public class AuthService extends ServiceManager<Auth,Long> {
         Auth auth = save(toAuth(dto));
         approveStatusProducer.sendActivationCode(ApproveStatusMailModel.builder()
                 .email(auth.getEmail()).activationCode(auth.getActivationCode()).build());
-        Optional<String> token = jwtTokenManager.createToken(auth.getId());
+        Optional<String> token = jwtTokenManager.createToken(auth.getId(), auth.getRole());
         if (token.isEmpty())
             throw new AuthManagerException(ErrorType.TOKEN_NOT_CREATED);
         if (auth.getRole().equals(Role.CUSTOMER))
@@ -52,7 +52,7 @@ public class AuthService extends ServiceManager<Auth,Long> {
         Optional<Auth> auth = authRepository.findByUsernameAndPassword(dto.getUsername(), dto.getPassword());
         if (auth.isEmpty())
             throw new AuthManagerException(ErrorType.INCORRECT_USERNAME_OR_PASSWORD);
-        Optional<String> token = jwtTokenManager.createToken(auth.get().getId());
+        Optional<String> token = jwtTokenManager.createToken(auth.get().getId(), auth.get().getRole());
         if (token.isEmpty())
             throw new AuthManagerException(ErrorType.TOKEN_NOT_CREATED);
         return toAuthResponse(auth.get().getId(),token.get());
@@ -119,4 +119,5 @@ public class AuthService extends ServiceManager<Auth,Long> {
         return true;
 
     }
+
 }

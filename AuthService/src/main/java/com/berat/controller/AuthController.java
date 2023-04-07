@@ -7,6 +7,7 @@ import com.berat.exception.ErrorType;
 import com.berat.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -30,6 +31,7 @@ public class AuthController {
         return ResponseEntity.ok(authService.doLogin(dto));
     }
     @PostMapping(APPROVE)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Boolean> approveStatus(@RequestBody ApproveStatusRequest dto){
         return ResponseEntity.ok(authService.approveStatus(dto));
     }
@@ -40,14 +42,17 @@ public class AuthController {
         return ResponseEntity.ok(authService.updatePassword(dto));
     }
     @PatchMapping(BLOCK+ BYAUTHID)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Boolean> blockByAuthId(@PathVariable Long authId){
         return ResponseEntity.ok(authService.blockByAuthId(authId));
     }
     @PatchMapping(DELETE+ BYAUTHID)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Boolean> deleteByAuthId(@PathVariable Long authId){
         return ResponseEntity.ok(authService.deleteByAuthId(authId));
     }
     @DeleteMapping(DELETE+ BYAUTHID)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Boolean> hardDeleteByAuthId(@PathVariable Long authId){
         return ResponseEntity.ok(authService.hardDeleteByAuthId(authId));
     }
@@ -55,4 +60,5 @@ public class AuthController {
     public ResponseEntity<Boolean> updateAuth(@RequestBody @Valid AuthUpdateRequest dto){
         return ResponseEntity.ok(authService.updateAuth(dto));
     }
+
 }
