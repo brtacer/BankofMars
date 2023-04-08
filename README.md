@@ -17,8 +17,8 @@
 - Swagger
 - Docker
 - Google Cloud
-- Kubernates Engine
-- Kubernates Clusters
+- Kubernetes Engine
+- Kubernetes Clusters
 ## About Project
 The basic operating principle of the project is as follows. Customers can create accounts and cards within certain rules after the following procedures. They can link multiple accounts to a single card. They can deposit and withdraw money from their accounts. They can transfer money to another account. They can make payments with the card they created. They can pay off their card debts with the balance in their accounts. <br>
 ![project_flow](./img/project_flow.png) <br>
