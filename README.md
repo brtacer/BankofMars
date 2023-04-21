@@ -20,7 +20,7 @@
 - Kubernetes Engine
 - Kubernetes Clusters
 ## About Project
-The basic operating principle of the project is as follows. Customers can create accounts and cards within certain rules after the following procedures. Deposit and withdraw money from their accounts. Transfer money to another account. They can make payments with the card they created. They can pay off their card debts with the balance in their accounts. <br>
+The basic operating principle of the project is as follows. Customers can create accounts and cards within certain rules after the following procedures. Deposit and withdraw money from their accounts. Transfer money to another account. Payments with the card they created. Pay off their card debts with the balance in their accounts. <br>
 ![project_flow](./img/project_flow.png) <br>
 ## Functions
 - User Management
